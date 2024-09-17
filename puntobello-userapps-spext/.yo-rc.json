@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.18.2",
+    "nodeVersion": "18.19.0",
+    "libraryName": "puntobello-userapps-spext",
+    "libraryId": "c7bf5add-4526-4383-b538-199a98372523",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ApplicationCustomizer",
+    "sdkVersions": {
+      "@microsoft/teams-js": "2.12.0",
+      "@microsoft/microsoft-graph-client": "3.0.2"
+    }
+  }
+}

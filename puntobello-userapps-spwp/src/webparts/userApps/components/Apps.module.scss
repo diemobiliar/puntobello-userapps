@@ -1,0 +1,165 @@
+.apps {
+  body, p, h1, h2, h3, h4, h5, h6, li, a, span, div {
+    font-family: var(--spfx_font_family) !important;
+  }
+
+  .sectionUserApps {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--spfx_color_grey);
+  }
+
+  .sectionAllApps {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--spfx_color_grey);
+  }
+
+  .titleMedium {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: var(--spfx_font_size_title);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--spfx_color_text);
+  }
+
+  .text {
+    margin-bottom: 0;
+    font-size: var(--spfx_font_size_generic);
+    color: var(--spfx_color_text);
+  }
+
+  .isDraggable {
+    cursor: move;
+  }
+
+  .itemTitle {
+    font-size: var(--spfx_font_size_generic) !important;
+    font-weight: 300 !important;
+    color: var(--spfx_color_text);
+    text-decoration: none;
+    &.itemPinAnimation {
+      animation: itemPinAnimation 0.8s forwards;
+    }
+    &.itemUnpinAnimation {
+      animation: itemUnpinAnimation 1.4s forwards;
+    }
+  }
+
+  .itemTitle:hover {
+    color: var(--spfx_color_text) !important;
+    filter: brightness(var(--spfx_color_text_brightness_dark));
+    text-decoration: none;
+  }
+
+  .unstyledButton {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--spfx_color_pinned);
+  }
+
+  .button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: var(--spfx_color_grey);
+    transition: color 0.15s ease;
+    &:hover {
+      color: var(--spfx_color_pinned);
+    }
+    &.pinAnimation {
+      animation: pinAnimation 0.8s forwards;
+    }
+    &.unpinAnimation {
+      animation: unpinAnimation 1.4s forwards;
+    }
+  }
+
+  .buttonPinned {
+    color: var(--spfx_color_pinned);
+
+    &:hover {
+      color: var(--spfx_color_grey);
+      filter: brightness(var(--spfx_color_grey_brightness_dark));
+    }
+  }
+
+  .buttonIcon {
+    vertical-align: middle;
+    color: var(--spfx_color_grey);
+    filter: brightness(var(--spfx_color_grey_brightness_dark));
+    transform: scale(1.2);
+  }
+
+  @keyframes pinAnimation {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(45deg) scale(1.4);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+  
+  @keyframes unpinAnimation {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(-45deg) scale(1.8);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes itemPinAnimation {
+    0% {
+      transform: rotate(0deg) scale(1.1);
+    }
+    50% {
+      transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+  
+  @keyframes itemUnpinAnimation {
+    0% {
+      transform: rotate(0deg) scale(1.1);
+    }
+    50% {
+      transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  .screenreaderOnly {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+  }
+
+  .isDropElement {
+    border-top-style: solid;
+    border-top-color: var(--spfx_color_pinned);
+    border-top-width: 1px;
+  }
+
+  .isDropLeaveElement {
+    border-bottom-style: solid;
+    border-bottom-color: var(--spfx_color_pinned);
+    border-bottom-width: 1px;
+  }
+}

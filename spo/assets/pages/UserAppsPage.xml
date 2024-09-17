@@ -1,0 +1,24 @@
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.17.1.0, Culture=neutral, PublicKeyToken=0d501f89f11b748c" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-A8FE22B5C8174474B9AC64BE5780E8C9">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-A8FE22B5C8174474B9AC64BE5780E8C9" Version="0" Scope="Undefined">
+      <pnp:ClientSidePages>
+        <pnp:ClientSidePage PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" EnableComments="false" Title="My Apps" ThumbnailUrl="" PageName="userapps.aspx">
+          <pnp:Header Type="Default" LayoutType="FullWidthImage" ShowTopicHeader="false" ShowPublishDate="false" ShowBackgroundGradient="false" TopicHeader="" AlternativeText="" Authors="" AuthorByLineId="-1" />
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumnFullWidth">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="PageTitle" JsonControlData="{&quot;id&quot;: &quot;cbe7b0a9-3504-44dd-a3a3-0e5cacd07788&quot;, &quot;instanceId&quot;: &quot;2d4b7ff9-4a5d-4cfc-a47f-30ae67ea5abb&quot;, &quot;title&quot;: &quot;Banner&quot;, &quot;description&quot;: &quot;Show a banner with title and author information&quot;, &quot;dataVersion&quot;: &quot;1.5&quot;, &quot;properties&quot;: {&quot;imageSourceType&quot;:2,&quot;title&quot;:&quot;My Apps&quot;,&quot;textAlignment&quot;:&quot;Left&quot;,&quot;showPublishDate&quot;:false,&quot;authors&quot;:[],&quot;showTopicHeader&quot;:false,&quot;authorByline&quot;:[],&quot;layoutType&quot;:&quot;NoImage&quot;,&quot;topicHeader&quot;:&quot;&quot;,&quot;enableGradientEffect&quot;:true,&quot;isDecorative&quot;:true}, &quot;serverProcessedContent&quot;: {&quot;htmlStrings&quot;:{},&quot;searchablePlainTexts&quot;:{},&quot;imageSources&quot;:{&quot;imageSource&quot;:&quot;/_layouts/15/images/sleektemplateimagetile.jpg&quot;},&quot;links&quot;:{},&quot;customMetadata&quot;:{&quot;imageSource&quot;:{}}}, &quot;dynamicDataPaths&quot;: {}, &quot;dynamicDataValues&quot;: {}}" ControlId="cbe7b0a9-3504-44dd-a3a3-0e5cacd07788" Order="1" Column="1" />
+              </pnp:Controls>
+            </pnp:Section>
+            <pnp:Section Order="2" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Custom" JsonControlData="{&quot;id&quot;: &quot;e0f2a1d6-809e-4d19-a58d-0a8f49fb10a7&quot;, &quot;instanceId&quot;: &quot;15325b74-264d-4793-9c99-15b4d678becd&quot;, &quot;title&quot;: &quot;UserApps&quot;, &quot;description&quot;: &quot;PuntoBello webpart to manage user apps&quot;, &quot;dataVersion&quot;: &quot;1.0&quot;, &quot;properties&quot;: {&quot;description&quot;:&quot;User Apps&quot;}, &quot;serverProcessedContent&quot;: {&quot;htmlStrings&quot;:{},&quot;searchablePlainTexts&quot;:{},&quot;imageSources&quot;:{},&quot;links&quot;:{}}, &quot;dynamicDataPaths&quot;: {}, &quot;dynamicDataValues&quot;: {}}" ControlId="e0f2a1d6-809e-4d19-a58d-0a8f49fb10a7" Order="1" Column="1" />
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+      </pnp:ClientSidePages>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

@@ -1,0 +1,12 @@
+{
+    "solutions": [
+        {
+            "solutionName": "puntobello-userapps-spwp",
+            "targets": ["pb_config"]
+        },
+        {
+            "solutionName": "puntobello-userapps-spext",
+            "targets": ["pb_home", "pb_config", "pb_content"]
+        }
+    ]
+}

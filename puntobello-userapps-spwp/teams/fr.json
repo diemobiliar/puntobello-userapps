@@ -1,0 +1,7 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
+    "name.short": "Mes applications",
+    "description.short": "Mes applications",
+    "description.full": "Mes applications",
+    "staticTabs[0].name": "Mes applications"
+  }

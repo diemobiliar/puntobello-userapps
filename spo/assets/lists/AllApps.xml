@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema">
+  <pnp:Preferences Generator="PnP.Framework, Version=1.13.1.0, Culture=neutral, PublicKeyToken=0d501f89f11b748c" />
+  <pnp:Templates ID="CONTAINER-TEMPLATE-5C4B6E7019D343CAA2F2D39062923495">
+    <pnp:ProvisioningTemplate ID="TEMPLATE-5C4B6E7019D343CAA2F2D39062923495" Version="1" BaseSiteTemplate="SITEPAGEPUBLISHING#0" Scope="RootSite">
+      <pnp:Lists>
+        <pnp:ListInstance Title="All Apps" Description="" DocumentTemplate="" OnQuickLaunch="true" TemplateType="100" Url="Lists/pb_apps" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="50" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" EnableAttachments="false" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/pb_apps/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/pb_apps/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/pb_apps/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=47" IrmExpire="false" IrmReject="false" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{C46B0A13-A132-4AEC-8C30-E8BF96F7D701}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/pb_apps/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=47">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="pb_SortOrder" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="pb_SortOrder" />
+                <FieldRef Name="Title" />
+                <FieldRef Name="pb_Description" />
+                <FieldRef Name="pb_LinkUrl" />
+                <FieldRef Name="pb_MUILanguage" />
+                <FieldRef Name="pb_AppId" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Number" Name="pb_SortOrder" DisplayName="Sort order" ID="{445fb597-8f1f-4040-bca5-d0166d9a78a3}" Group="PuntoBello" Required="FALSE" SourceID="{{listid:All Apps}}" StaticName="pb_SortOrder" ColName="float1" RowOrdinal="0" />
+            <Field Type="Note" Name="pb_Description" DisplayName="Description" ID="{1b18a310-9b33-48ee-a4f8-f511071ed3a2}" Group="PuntoBello" Required="FALSE" SourceID="{{listid:All Apps}}" StaticName="pb_Description" ColName="ntext2" RowOrdinal="0" />
+            <Field Type="Text" Name="pb_LinkUrl" DisplayName="Link" ID="{ca0616b7-0357-4def-8987-dcc81ff147fb}" Group="PuntoBello" Required="FALSE" SourceID="{{listid:All Apps}}" StaticName="pb_LinkUrl" ColName="nvarchar7" RowOrdinal="0" />
+            <Field Type="MultiChoice" Name="pb_MUILanguage" DisplayName="MUI Language" ID="{6fa733d6-cc91-43cb-bfbf-5fdf395f8832}" Group="PuntoBello" Required="FALSE" SourceID="{{listid:All Apps}}" StaticName="pb_MUILanguage" ColName="ntext3" RowOrdinal="0" Version="1">
+              <CHOICES>
+                <CHOICE>Default</CHOICE>
+                <CHOICE>en-US</CHOICE>
+                <CHOICE>zh-CN</CHOICE>
+                <CHOICE>es-ES</CHOICE>
+                <CHOICE>ar-SA</CHOICE>
+                <CHOICE>ru-RU</CHOICE>
+                <CHOICE>de-DE</CHOICE>
+                <CHOICE>fr-FR</CHOICE>
+                <CHOICE>ja-JP</CHOICE>
+                <CHOICE>pt-BR</CHOICE>
+                <CHOICE>hi-IN</CHOICE>
+                <CHOICE>en-GB</CHOICE>
+                <CHOICE>it-IT</CHOICE>
+                <CHOICE>ko-KR</CHOICE>
+                <CHOICE>nl-NL</CHOICE>
+                <CHOICE>pl-PL</CHOICE>
+                <CHOICE>tr-TR</CHOICE>
+                <CHOICE>sv-SE</CHOICE>
+                <CHOICE>da-DK</CHOICE>
+                <CHOICE>fi-FI</CHOICE>
+                <CHOICE>nb-NO</CHOICE>
+                <CHOICE>cs-CZ</CHOICE>
+                <CHOICE>hu-HU</CHOICE>
+                <CHOICE>el-GR</CHOICE>
+                <CHOICE>bg-BG</CHOICE>
+                <CHOICE>ro-RO</CHOICE>
+                <CHOICE>sk-SK</CHOICE>
+                <CHOICE>sl-SI</CHOICE>
+                <CHOICE>hr-HR</CHOICE>
+                <CHOICE>lt-LT</CHOICE>
+                <CHOICE>lv-LV</CHOICE>
+                <CHOICE>et-EE</CHOICE>
+                <CHOICE>mt-MT</CHOICE>
+                <CHOICE>en-AU</CHOICE>
+                <CHOICE>fr-CA</CHOICE>
+                <CHOICE>pt-PT</CHOICE>
+                <CHOICE>de-CH</CHOICE>
+                <CHOICE>fr-CH</CHOICE>
+                <CHOICE>it-CH</CHOICE>
+                <CHOICE>en-ZA</CHOICE>
+                <CHOICE>af-ZA</CHOICE>
+              </CHOICES>
+            </Field>
+            <Field Type="Text" Name="pb_AppId" DisplayName="App Id" ID="{2cf1884f-2b11-4389-973d-ac39a41f26d6}" Group="PuntoBello" Required="FALSE" SourceID="{{listid:All Apps}}" StaticName="pb_AppId" ColName="nvarchar8" RowOrdinal="0" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="fa564e0f-0c70-4ab9-b863-0177e6ddd247" Name="Title" Required="true" DisplayName="Title" />
+            <pnp:FieldRef ID="76d13cd2-1bae-45a5-8b74-545b87b65037" Name="_ColorTag" DisplayName="Color Tag" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

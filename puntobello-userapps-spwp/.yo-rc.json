@@ -1,0 +1,18 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.18.2",
+    "nodeVersion": "18.19.0",
+    "libraryName": "puntobello-userapps-spwp",
+    "libraryId": "1c4e4e14-066c-40fe-996e-6ab65142b787",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "webpart",
+    "sdkVersions": {
+      "@microsoft/teams-js": "2.12.0",
+      "@microsoft/microsoft-graph-client": "3.0.2"
+    }
+  }
+}

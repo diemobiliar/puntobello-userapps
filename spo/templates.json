@@ -1,0 +1,22 @@
+{
+    "templates": [
+        {
+            "templateName": "AllApps.xml",
+            "targets": ["pb_config"],
+            "relativePath": "./spo/assets/lists",
+            "sortOrder": 100
+        },
+        {
+            "templateName": "UserApps.xml",
+            "targets": ["pb_config"],            
+            "relativePath": "./spo/assets/lists",
+            "sortOrder": 200
+        },
+        {
+            "templateName": "UserAppsPage.xml",
+            "targets": ["pb_config"],            
+            "relativePath": "./spo/assets/pages",
+            "sortOrder": 300
+        }
+    ]
+}

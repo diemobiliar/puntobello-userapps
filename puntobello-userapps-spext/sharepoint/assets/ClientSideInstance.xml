@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="UserApps"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="23c48555-100d-4376-a5ef-196a195b5edf"
+        Properties="{}">
+    </ClientSideComponentInstance>
+</Elements>

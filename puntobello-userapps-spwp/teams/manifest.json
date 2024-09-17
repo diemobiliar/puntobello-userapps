@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.7/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.7",
+  "localizationInfo": {
+    "defaultLanguageTag": "en"
+  },
+  "packageName": "UserApps",
+  "id": "@@AppID@@",
+  "version": "@@Version@@",
+  "developer": {
+    "name": "die Mobiliar",
+    "websiteUrl": "https://mobiliar.ch/",
+    "privacyUrl": "",
+    "termsOfUseUrl": "",
+    "mpnId": "000000"
+  },
+  "name": {
+    "short": "My Apps"
+  },
+  "description": {
+    "short": "My Applications",
+    "full": "My Applications"
+  },
+  "icons": {
+    "outline": "userapps_outline.png",
+    "color": "userapps_color.png"
+  },
+  "accentColor": "#004578",
+  "staticTabs": [
+    {
+      "entityId": "@@AppID@@",
+      "name": "My Apps",
+      "contentUrl": "",
+      "websiteUrl": "",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "validDomains": [
+    "@@tenantName@@.sharepoint.com"
+  ]
+}

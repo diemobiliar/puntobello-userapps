@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "puntobello-userapps-spext",
+    "id": "c7bf5add-4526-4383-b538-199a98372523",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Nello D'Andrea - Die Mobiliar",
+      "websiteUrl": "https://github.com/diemobiliar",
+      "privacyUrl": "https://github.com/diemobiliar",
+      "termsOfUseUrl": "https://github.com/diemobiliar",
+      "mpnId": "Undefined-1.18.2"
+    },
+    "features": [
+      {
+        "title": "User Apps extension application customizer",
+        "description": "This extension provides the list of favorite apps saved for the logged in user",
+        "id": "b3bc83f9-3db4-457e-8a02-ee2991288bf7",
+        "version": "0.0.1.0",
+        "assets": {
+          "elementManifests": [
+            "elements.xml",
+            "ClientSideInstance.xml"
+          ]
+        }
+      }
+    ],
+    "metadata": {
+      "shortDescription": {
+        "default": "puntobello-userapps-spext my apps link"
+      },
+      "longDescription": {
+        "default": "puntobello-userapps-spext link control showing my apps and link to manage them"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    }
+  },
+  "paths": {
+    "zippedPackage": "solution/puntobello-userapps-spext.sppkg"
+  }
+}

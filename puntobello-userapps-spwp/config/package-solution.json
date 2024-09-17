@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "puntobello-userapps-spwp",
+    "id": "1c4e4e14-066c-40fe-996e-6ab65142b787",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": false,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Nello D'Andrea - Die Mobiliar",
+      "websiteUrl": "https://github.com/diemobiliar",
+      "privacyUrl": "https://github.com/diemobiliar",
+      "termsOfUseUrl": "https://github.com/diemobiliar",
+      "mpnId": "Undefined-1.18.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "puntobello-userapps-spwp userapps"
+      },
+      "longDescription": {
+        "default": "puntobello-userapps-spwp webpart to manage my apps"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    }
+  },
+  "paths": {
+    "zippedPackage": "solution/puntobello-userapps-spwp.sppkg"
+  }
+}
