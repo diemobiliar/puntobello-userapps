@@ -13,7 +13,7 @@ The list of apps within a company or organization is usually predefined, and wit
 ## PuntoBello Artifacts
 All lists and fields associated with the PuntoBello solution are prefixed with `pb_`
 
-![All Apps List](./assets/myapps-all-apps-list.png)
+![All Apps List](./assets/_myapps-all-apps-list_new.png)
 
 ## Structure
 This project consists of two SharePoint SPFx solutions:
