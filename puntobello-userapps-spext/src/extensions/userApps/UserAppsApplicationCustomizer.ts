@@ -22,7 +22,6 @@ export interface IUserAppsApplicationCustomizerProperties {
 export default class UserAppsApplicationCustomizer
   extends BaseApplicationCustomizer<IUserAppsApplicationCustomizerProperties> {
   private logger: Logger;
-  
 /**
  * Initializes the web part by setting up logging and handling the application's navigation event.
  * 
@@ -104,12 +103,10 @@ export default class UserAppsApplicationCustomizer
 
       observer = new MutationObserver(() => {
         const divHook = document.querySelector('*[data-automationid="SiteHeaderFollowButton"]');
-        const followingDivHookMobile = document.querySelector('div[class^="headerRow"] div[class^="actionsWrapper"] *[data-icon-name="FavoriteStarFill"]');
-        const notFollowingDivHookMobile = document.querySelector('div[class^="headerRow"] div[class^="actionsWrapper"] *[data-icon-name="FavoriteStar"]');
 
         const findParent = (element: Element) => element ? element.parentElement?.parentElement : null;
 
-        const parent = findParent(divHook) || findParent(followingDivHookMobile) || findParent(notFollowingDivHookMobile);
+        const parent = findParent(divHook);
 
         if (parent) {
           if (observer) observer.disconnect(); // Stop observing once found
@@ -118,7 +115,7 @@ export default class UserAppsApplicationCustomizer
       });
 
       // Targeting the specific div with id="spSiteHeader" for observing
-      const targetNode = document.querySelector('div#spSiteHeader');
+      const targetNode = document.querySelector('*[data-automationid="SiteHeader"]');
 
       if (targetNode) {
         observer.observe(targetNode, { childList: true, subtree: true });
