@@ -1,12 +1,57 @@
 {
-    "solutions": [
+    "sites": [
         {
-            "solutionName": "puntobello-userapps-spwp",
-            "targets": ["pb_config"]
+            "Url": "pb_config",
+            "Title": "Configuration and Administration Site",
+            "LCID": 1033,
+            "solutions": [
+                {
+                    "Name": "puntobello-userapps-spwp"
+                },
+                {
+                    "Name": "puntobello-userapps-spext"
+                }
+            ],
+            "templates": [
+                {
+                    "templateName": "AllApps.xml",
+                    "relativePath": "./spo/assets/lists",
+                    "sortOrder": 100
+                },
+                {
+                    "templateName": "UserApps.xml",
+                    "relativePath": "./spo/assets/lists",
+                    "sortOrder": 200
+                },
+                {
+                    "templateName": "UserAppsPage.xml",
+                    "relativePath": "./spo/assets/pages",
+                    "sortOrder": 300
+                }
+            ]
         },
         {
-            "solutionName": "puntobello-userapps-spext",
-            "targets": ["pb_home", "pb_config", "pb_content"]
+            "Url": "pb_home",
+            "Title": "Intranet Home Page",
+            "LCID": 1033,
+            "solutions": [
+                {
+                    "Name": "puntobello-userapps-spext"
+                }
+            ],
+            "templates": []
+        },
+        {
+            "Url": "pb_content",
+            "Title": "Intranet Content Page",
+            "LCID": 1033,
+            "solutions": [
+                {
+                    "Name": "puntobello-userapps-spext"
+                }
+            ],
+            "templates": []
         }
-    ]
+    ],
+    "termStore": []
 }
