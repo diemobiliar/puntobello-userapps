@@ -4,7 +4,7 @@
     "isCreatingSolution": true,
     "environment": "spo",
     "version": "1.21.0",
-    "nodeVersion": "18.19.0",
+    "nodeVersion": "22.15.0",
     "libraryName": "puntobello-userapps-spext",
     "libraryId": "c7bf5add-4526-4383-b538-199a98372523",
     "packageManager": "npm",

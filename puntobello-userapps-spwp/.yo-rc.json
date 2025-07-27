@@ -4,7 +4,7 @@
     "isCreatingSolution": true,
     "environment": "spo",
     "version": "1.21.0",
-    "nodeVersion": "18.19.0",
+    "nodeVersion": "22.15.0",
     "libraryName": "puntobello-userapps-spwp",
     "libraryId": "1c4e4e14-066c-40fe-996e-6ab65142b787",
     "packageManager": "npm",
