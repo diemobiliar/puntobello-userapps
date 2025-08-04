@@ -4,10 +4,7 @@ import { PageContext } from "@microsoft/sp-page-context";
 
 // PnP JS imports
 import { SPFI, spfi, SPFx } from "@pnp/sp";
-import { Web } from "@pnp/sp/webs";
-import "@pnp/sp/lists";
-import "@pnp/sp/items";
-import "@pnp/sp/site-users/web";
+import { Web } from "@pnp/sp/presets/all";
 
 // Utilities
 import { Utility } from "../utils/utils";
@@ -83,8 +80,7 @@ export class SharePointService {
         const queryFilter = culture.length > 0 ?
             "pb_MUILanguage eq '" + culture + "' or pb_MUILanguage eq 'Default'" :
             "pb_MUILanguage eq 'default'";
-        const appsWeb = Web([this.sp.web, this.appsSiteUrl]);
-        return appsWeb.getList(this.allAppsRelativeUrl).items.filter(queryFilter)();
+        return Web([this.sp.web, this.appsSiteUrl]).getList(`${this.allAppsRelativeUrl}`).items.filter(queryFilter)();
     }
 
     /**
@@ -93,9 +89,9 @@ export class SharePointService {
      * @returns {Promise<string[]>} A promise that resolves to an array of application IDs.
      */
     public getUserAppsIds = async (): Promise<string[]> => {
-        const appsWeb = Web([this.sp.web, this.appsSiteUrl]);
-        const user = await appsWeb.ensureUser(this.userLoginName);
-        const listItem = await appsWeb
+        const web = Web([this.sp.web, this.appsSiteUrl]);
+        const user = await web.ensureUser(this.userLoginName);
+        const listItem = await web
             .getList(this.userAppsRelativeUrl)
             .items
             .select('pb_UserApps')
