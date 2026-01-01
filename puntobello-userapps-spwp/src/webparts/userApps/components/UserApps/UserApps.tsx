@@ -86,9 +86,13 @@ export function UserApps() {
       },
       // Handles the visual feedback when dragging over an item
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      onDragEnter: (item?: any, event?: DragEvent) => {
+      onDragEnter: (item?: any, event?: DragEvent): string => {
+        if (!event) {
+          return '';
+        }
         if (clientY === -1) {
           clientY = event.clientY;
+          return '';
         } else if (clientY < event.clientY) {
           return styles.isDropLeaveElement;
         } else {
@@ -100,7 +104,7 @@ export function UserApps() {
       },
       // Handles the drop event, inserting the dragged item before the dropped-on item
       onDrop: (item?: IAppsItem) => {
-        if (draggedItem) {
+        if (draggedItem && item) {
           insertBeforeItem(item);
         }
       },

@@ -170,7 +170,7 @@ export function MenuWidget() {
             root: {
               minWidth: '320px',
               borderRadius: rootEnv.css['--spfx_border_radius'],
-              border: `1px solid ${Utility.hexToRGBA(rootEnv.css['--spfx_color_primary'], 30)}`,
+              border: `1px solid ${Utility.hexToRGBA(rootEnv.css['--spfx_color_primary'] ?? '', 30)}`,
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               overflow: 'hidden',
             },

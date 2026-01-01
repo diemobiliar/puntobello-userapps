@@ -46,11 +46,11 @@ export class SharePointService {
     public static readonly serviceKey: ServiceKey<ISharePointService> =
         ServiceKey.create<ISharePointService>('SPFx:SharePointService', SharePointService);
 
-    private sp: SPFI;
-    private appsSiteUrl: string;
-    private userAppsRelativeUrl: string;
-    private allAppsRelativeUrl: string;
-    private userLoginName: string;
+    private sp!: SPFI;
+    private appsSiteUrl!: string;
+    private userAppsRelativeUrl!: string;
+    private allAppsRelativeUrl!: string;
+    private userLoginName!: string;
 
     /**
      * Initializes a new instance of the SharePointService class.

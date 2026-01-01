@@ -59,10 +59,10 @@ export function Search() {
      * @param {string} text - The current text value in the search box.
      */
     function onChangeText(
-        ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
-        text: string
+        ev?: React.ChangeEvent<HTMLInputElement>,
+        text?: string
     ): void {
-        debouncedSearch(text);
+        debouncedSearch(text ?? '');
     }
 
     return (

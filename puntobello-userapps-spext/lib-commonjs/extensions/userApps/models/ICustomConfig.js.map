@@ -1,0 +1,1 @@
+{"version":3,"file":"ICustomConfig.js","sourceRoot":"","sources":["../../../../src/extensions/userApps/models/ICustomConfig.ts"],"names":[],"mappings":"","sourcesContent":["export interface ICustomConfig {\n    spfxConfigSite?: string;\n    spfxUserAppsList?: string;\n    spfxAppsList?: string;\n    spfxManagementAppsPage?: string;\n}"]}
