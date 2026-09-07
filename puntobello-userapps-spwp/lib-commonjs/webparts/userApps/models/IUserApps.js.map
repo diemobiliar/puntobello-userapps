@@ -1,0 +1,1 @@
+{"version":3,"file":"IUserApps.js","sourceRoot":"","sources":["../../../../src/webparts/userApps/models/IUserApps.ts"],"names":[],"mappings":"","sourcesContent":["export interface IUserAppsItems {\n    Title?: string;\n    pb_LinkUrl?: string;\n    pb_AppId: string;\n    pb_Description?: string;\n    pb_SortOrder?: number; \n  }"]}

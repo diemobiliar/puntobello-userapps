@@ -1,10 +1,12 @@
 // SPFx-specific imports
 import { ServiceKey, ServiceScope } from "@microsoft/sp-core-library";
-import { PageContext } from "@microsoft/sp-page-context";
 
 // PnP JS imports
 import { SPFI, spfi, SPFx } from "@pnp/sp";
-import { Web } from "@pnp/sp/presets/all";
+import { Web } from "@pnp/sp/webs";
+import "@pnp/sp/lists";
+import "@pnp/sp/items";
+import "@pnp/sp/site-users/web";
 
 // Models
 import { IAppsItem, IPageContext, IUserAppsItems, ILanguageRepresentation } from "../models";
@@ -18,8 +20,18 @@ import * as lcid from "lcid";
  */
 export interface ISharePointService {
     /**
+     * Sets the WebPartContext for PnP JS initialization.
+     * Must be called from the WebPart's onInit after service scope is consumed.
+     * PnP v4 requires the full WebPartContext, not just PageContext.
+     *
+     * @param {any} context - The full WebPartContext from the WebPart.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setContext(context: any): void;
+
+    /**
      * Retrieves all applications available in the specified culture.
-     * 
+     *
      * @param {string} culture - The culture code to filter applications (e.g., "en-US").
      * @returns {Promise<IAppsItem[]>} A promise that resolves to a list of applications.
      */
@@ -27,7 +39,7 @@ export interface ISharePointService {
 
     /**
      * Retrieves the IDs of the user's applications based on their user ID and login name.
-     * 
+     *
      * @param {string} userId - The ID of the user in SharePoint.
      * @param {string} loginName - The login name of the user.
      * @param {IAppsItem[]} allApps - The list of all available applications.
@@ -37,7 +49,7 @@ export interface ISharePointService {
 
     /**
      * Updates the user's application list in SharePoint based on the ordered items provided.
-     * 
+     *
      * @param {string} userObjectId - The object ID of the user in SharePoint.
      * @param {string} loginName - The login name of the user.
      * @param {string[]} orderedItems - The ordered list of application IDs.
@@ -47,7 +59,7 @@ export interface ISharePointService {
 
     /**
      * Calculates the language settings for the current page based on the list and item IDs.
-     * 
+     *
      * @param {string} listId - The ID of the SharePoint list.
      * @param {number} listItemId - The ID of the list item.
      * @param {number} defaultLanguage - The default language LCID if no language is found.
@@ -67,27 +79,37 @@ export default class SharePointService {
     public static readonly serviceKey: ServiceKey<ISharePointService> =
         ServiceKey.create<ISharePointService>('SPFx:SharePointService', SharePointService);
 
-    private appsSiteUrl: string;
-    private userAppsRelativeUrl: string;
-    private allAppsRelativeUrl: string;
-    private sp: SPFI;
+    private appsSiteUrl!: string;
+    private userAppsRelativeUrl!: string;
+    private allAppsRelativeUrl!: string;
+    private sp!: SPFI;
     private logger: Logger;
 
     /**
      * Initializes a new instance of the SharePointService class.
-     * 
+     *
      * @param {ServiceScope} serviceScope - The service scope from which the SharePoint context and other services are consumed.
      */
     constructor(serviceScope: ServiceScope) {
         this.logger = Logger.getInstance();
 
         serviceScope.whenFinished(() => {
-            const pageContext = serviceScope.consume(PageContext.serviceKey);
             this.allAppsRelativeUrl = Utility.getPBConfigUrl(true) + Utility.getAllAppsUrl();
             this.userAppsRelativeUrl = Utility.getPBConfigUrl(true) + Utility.getUserAppsUrl();
             this.appsSiteUrl = "https://" + Utility.getPBConfigUrl(false);
-            this.sp = spfi().using(SPFx({ pageContext: pageContext }));
         });
+    }
+
+    /**
+     * Sets the WebPartContext for PnP JS initialization.
+     * Must be called from the WebPart's onInit after service scope is consumed.
+     * PnP v4 requires the full WebPartContext, not just PageContext.
+     *
+     * @param {any} context - The full WebPartContext from the WebPart.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public setContext(context: any): void {
+        this.sp = spfi().using(SPFx(context));
     }
 
     /**
@@ -117,7 +139,7 @@ export default class SharePointService {
         if (!pageContext || !pageContext.OData__SPIsTranslation || !pageContext.OData__SPTranslationLanguage) {
             // If not running in a multilingual setup, default to the web language
             languageData.lcid = defaultLanguage;
-            languageData.Language = lcid.from(defaultLanguage);
+            languageData.Language = lcid.from(defaultLanguage) ?? '';
             languageData.LanguageLC = languageData.Language.toLowerCase();
             languageData.LanguageDashed = languageData.Language.replace('_','-');
             languageData.LanguageDashedLC = languageData.LanguageLC.replace('_','-');
@@ -125,7 +147,7 @@ export default class SharePointService {
         }
 
         // If the page is a translation, get the language from the page property
-        languageData.lcid = lcid.to(pageContext.OData__SPTranslationLanguage);
+        languageData.lcid = lcid.to(pageContext.OData__SPTranslationLanguage) ?? 0;
         languageData.Language = pageContext.OData__SPTranslationLanguage;
         languageData.LanguageLC = languageData.Language.toLowerCase();
         languageData.LanguageDashed = languageData.Language.replace('_','-');
@@ -191,7 +213,7 @@ export default class SharePointService {
             .getList(this.userAppsRelativeUrl)
             .items
             .select('pb_UserApps')
-            .filter(`pb_User eq '${user.data.Id}'`)
+            .filter(`pb_User eq '${user.Id}'`)
             .top(1)();
 
         if (listItem.length === 1 && listItem[0].pb_UserApps) {
@@ -235,7 +257,7 @@ export default class SharePointService {
             const user = await Web([this.sp.web, this.appsSiteUrl]).ensureUser(loginName);
 
             await list.items.add({
-                pb_UserId: user.data.Id,
+                pb_UserId: user.Id,
                 pb_UserApps: orderedItems.join(';'),
             });
         }

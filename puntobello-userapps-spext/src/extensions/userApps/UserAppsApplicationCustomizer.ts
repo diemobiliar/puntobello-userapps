@@ -21,7 +21,9 @@ export interface IUserAppsApplicationCustomizerProperties {
 
 export default class UserAppsApplicationCustomizer
   extends BaseApplicationCustomizer<IUserAppsApplicationCustomizerProperties> {
-  private logger: Logger;
+  private logger!: Logger;
+  private _userAppsElement: HTMLElement | null = null;
+  private _shyAppsElement: HTMLElement | null = null;
   /**
    * Initializes the web part by setting up logging and handling the application's navigation event.
    * 
@@ -67,7 +69,8 @@ export default class UserAppsApplicationCustomizer
           userAppsDivElement.style.display = 'inherit';
           (parent as HTMLElement).prepend(userAppsDivElement);
         }
-        ReactDom.render(element, userAppsDivElement);
+        this._userAppsElement = userAppsDivElement;
+        ReactDom.render(element, this._userAppsElement);
       }).catch((error) => {
         this.logger.error("Error in observeForElement: ", error);
       });
@@ -121,7 +124,7 @@ export default class UserAppsApplicationCustomizer
 
       // Function to find the parent element
       const findParent = (element: Element | null): Element | null =>
-        element ? element.parentElement?.parentElement : null;
+        element ? element.parentElement?.parentElement ?? null : null;
 
       observer = new MutationObserver(() => {
         // First, try to find the SiteHeaderFollowButton
@@ -136,9 +139,9 @@ export default class UserAppsApplicationCustomizer
         } else {
           // If SiteHeaderFollowButton is not found, check if SiteHeader is in the DOM
           const siteHeader = document.querySelector('*[data-automationid="SiteHeader"]');
-          if (siteHeader) {
+          if (siteHeader && observer) {
             // Once SiteHeader is available, observe it for the FollowButton
-            observer?.disconnect(); // Disconnect current observer
+            observer.disconnect(); // Disconnect current observer
             observer.observe(siteHeader, { childList: true, subtree: true });
           }
         }
@@ -179,7 +182,8 @@ export default class UserAppsApplicationCustomizer
                 { appContext },
                 React.createElement(MenuWidget)
               );
-              ReactDom.render(element, shyApps);
+              this._shyAppsElement = shyApps;
+              ReactDom.render(element, this._shyAppsElement);
             }
             observer.disconnect();
           }
@@ -190,5 +194,16 @@ export default class UserAppsApplicationCustomizer
     if (headerRow) {
       observer.observe(headerRow, { subtree: false, childList: true });
     }
+  }
+
+  @override
+  protected onDispose(): void {
+    if (this._userAppsElement) {
+      ReactDom.unmountComponentAtNode(this._userAppsElement);
+    }
+    if (this._shyAppsElement) {
+      ReactDom.unmountComponentAtNode(this._shyAppsElement);
+    }
+    super.onDispose();
   }
 }

@@ -1,0 +1,1 @@
+{"version":3,"file":"IAppsItem.js","sourceRoot":"","sources":["../../../../src/webparts/userApps/models/IAppsItem.ts"],"names":[],"mappings":"","sourcesContent":["export interface IAppsItem {\n    id: string;\n    name: string;\n    description?: string;\n    url?: string;\n    order?: number;\n    pinned?: boolean;\n    unpinned?: boolean;\n}"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"IAllAppsItems.js","sourceRoot":"","sources":["../../../../src/extensions/userApps/models/IAllAppsItems.ts"],"names":[],"mappings":"","sourcesContent":["import { IItems } from \"@pnp/sp/items\";\n\nexport default interface IAllAppsItems extends IItems {\n  Title?: string;\n  pb_MUILanguage: string;\n  pb_AppId: string;\n  pb_LinkUrl: string;\n}"]}

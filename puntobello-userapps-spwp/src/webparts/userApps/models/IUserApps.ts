@@ -1,6 +1,4 @@
-import { IItems } from "@pnp/sp/items";
-
-export interface IUserAppsItems extends IItems {
+export interface IUserAppsItems {
     Title?: string;
     pb_LinkUrl?: string;
     pb_AppId: string;

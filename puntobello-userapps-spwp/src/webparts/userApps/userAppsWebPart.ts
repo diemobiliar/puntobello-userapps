@@ -25,8 +25,8 @@ import { initialAppsState } from './state/State';
 import { AppsActions } from './state/Actions';
 
 export default class UserAppsWebPart extends BaseClientSideWebPart<never> {
-  private logger: Logger;
-  private pageLanguage: ILanguageRepresentation;
+  private logger!: Logger;
+  private pageLanguage!: ILanguageRepresentation;
 
   /**
    * Initializes the web part. This method sets up the logger, retrieves 
@@ -43,11 +43,18 @@ export default class UserAppsWebPart extends BaseClientSideWebPart<never> {
       this.logger.info('Logger initialized');
 
       try {
-        const listItemId = this.context.pageContext.listItem.id;
-        const listId = this.context.pageContext.list.id.toString();
+        const listItemId = this.context.pageContext.listItem?.id;
+        const listId = this.context.pageContext.list?.id.toString();
         const language = this.context.pageContext.web.language;
 
+        if (!listItemId || !listId) {
+          this.logger.warn("Not running in a page context with list/listItem");
+          return;
+        }
+
         const service: ISharePointService = this.context.serviceScope.consume(SharePointService.serviceKey);
+        // PnP v4 requires full WebPartContext, not just PageContext
+        service.setContext(this.context);
         this.pageLanguage = await service.calculateLanguage(listId, listItemId, language);
       } catch (error) {
         this.logger.error("Error in onInit Webpart: ", error);
